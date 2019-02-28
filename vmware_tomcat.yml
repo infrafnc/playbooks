@@ -1,0 +1,24 @@
+---
+- hosts: vmware
+  vars_prompt:
+    - name: "vm_name"
+      prompt: "vm name"
+      private: no
+    - name: "vcenter_user"
+      prompt: "Enter vcenter username"
+      private: no
+    - name: "vcenter_pass"
+      prompt: "Enter vcenter password"
+      private: yes
+
+  gather_facts: false
+  connection: local
+  user: remote
+  sudo: true
+  roles:
+    - { role: deployvmware }
+
+- hosts: novamaquina
+  roles:
+    - { role: confbase }
+    - { role: tomcat } 
