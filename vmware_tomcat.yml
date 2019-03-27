@@ -14,11 +14,16 @@
   gather_facts: false
   connection: local
   user: remote
-  sudo: true
+  become: yes 
   roles:
     - { role: deployvmware }
 
 - hosts: novamaquina
+  vars_prompt:
+    - name: "newhostname"
+      prompt: "Insira o novo hostname"
+      private: no
+
   roles:
     - { role: confbase }
     - { role: tomcat } 

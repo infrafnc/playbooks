@@ -1,0 +1,4 @@
+---
+- hosts: teste
+  roles:
+    - { role: tomcat }

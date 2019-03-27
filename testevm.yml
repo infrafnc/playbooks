@@ -1,0 +1,9 @@
+---
+- hosts: teste
+  vars_prompt:
+    - name: "newhostname"
+      prompt: "Insira o novo hostname"
+      private: no
+
+  roles:
+    - { role: confbase }
